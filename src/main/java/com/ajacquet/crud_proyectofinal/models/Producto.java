@@ -1,5 +1,8 @@
 package com.ajacquet.crud_proyectofinal.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,10 +10,12 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Table("productos")
+@Table(name="productos")
 public class Producto {
     @Getter
     @Setter
+    @Id
+    @Column(name="idproductos")
     private Integer id;
     @Getter
     @Setter

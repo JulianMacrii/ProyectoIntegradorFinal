@@ -1,11 +1,11 @@
 package com.ajacquet.crud_proyectofinal.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 
@@ -16,6 +16,12 @@ public class Producto {
     @Setter
     @Id
     @Column(name="idproductos")
+    @GeneratedValue(strategy=GenerationType.AUTO,generator="native"
+    )
+    @GenericGenerator(
+            name = "native",
+            strategy = "native"
+    )
     private Integer id;
     @Getter
     @Setter
@@ -25,6 +31,9 @@ public class Producto {
     private Double precio;
     @Getter
     @Setter
+    @Temporal(TemporalType.DATE)
+    @CreatedDate
+    @Column(name = "fecha_alta")
     private Date fechaAlta;
 
     @Override

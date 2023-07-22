@@ -38,5 +38,15 @@ public class ProductoControllers {
         return "listar";
     }
 
+    /*Agregar un producto Nuevo*/
+
+    /*Eliminar Producto byID*/
+    @RequestMapping(value="/eliminarProducto", method= RequestMethod.GET)
+    public String eliminar(Model model){
+        model.addAttribute("titulo", "Listado de Productos");
+        model.addAttribute("productos", productoService.listar());
+        return "listar";
+    }
+
 
 }

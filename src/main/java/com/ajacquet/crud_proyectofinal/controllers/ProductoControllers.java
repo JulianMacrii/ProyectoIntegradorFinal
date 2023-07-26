@@ -44,7 +44,7 @@ public class ProductoControllers {
     @RequestMapping(value="/eliminarProducto", method= RequestMethod.GET)
     public String eliminar(Model model){
         model.addAttribute("titulo", "Listado de Productos");
-        model.addAttribute("productos", productoService.listar());
+        model.addAttribute("productos", productoService);
         return "listar";
     }
 

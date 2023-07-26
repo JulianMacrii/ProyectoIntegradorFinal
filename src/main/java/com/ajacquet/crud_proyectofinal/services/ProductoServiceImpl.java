@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Qualifier("productoService")
 public class ProductoServiceImpl implements ProductoService {
@@ -25,4 +27,26 @@ public class ProductoServiceImpl implements ProductoService {
     public Iterable<Producto> listar() {
         return productoRepository.findAll();
     }
+
+    @Override
+    public void eliminarPorId(Integer id) {
+        productoRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Producto> buscarPorId(Integer id) {
+        return productoRepository.findById(id);
+    }
+
+    @Override
+    public Boolean actualizarProducto(Producto producto) {
+        return null;
+    }
+
+    @Override
+    public Boolean actualizarPrecioProducto(Integer idProducto, Double precioActualizado) {
+        return null;
+    }
+
+
 }

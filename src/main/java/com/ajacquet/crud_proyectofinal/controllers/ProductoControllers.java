@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +32,12 @@ public class ProductoControllers {
         return new ResponseEntity<>("guardado", HttpStatus.OK);
     }
 
+    @GetMapping(value = "/agregar")
+    public String agregarProducto(Model model) {
+        model.addAttribute("producto", new Producto());
+        return "agregar_producto";
+    }
+
     @RequestMapping(value="/listarProductos", method= RequestMethod.GET)
     public String listar(Model model){
         model.addAttribute("titulo", "Listado de Productos");
@@ -45,7 +52,7 @@ public class ProductoControllers {
     public String eliminar(Model model){
         model.addAttribute("titulo", "Listado de Productos");
         model.addAttribute("productos", productoService);
-        return "listar";
+        return "productos/listar";
     }
 
 

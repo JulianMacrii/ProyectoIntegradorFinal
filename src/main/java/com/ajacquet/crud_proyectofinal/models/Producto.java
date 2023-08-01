@@ -9,14 +9,14 @@ import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 
-@Entity
-@Table(name="productos")
+@Entity //entidad JPA - mapeara una tabla en la base de datos
+@Table(name="productos") // nombre de la tabla
 public class Producto {
     @Getter
     @Setter
     @Id
     @Column(name="idproductos")
-    @GeneratedValue(strategy=GenerationType.AUTO,generator="native"
+    @GeneratedValue(strategy=GenerationType.AUTO,generator="native" //se genera automaticamente el valor del campo
     )
     @GenericGenerator(
             name = "native",
@@ -33,7 +33,7 @@ public class Producto {
     @Setter
     @Temporal(TemporalType.DATE)
     @CreatedDate
-    @Column(name = "fecha_alta")
+    @Column(name = "fecha_alta") //el campo se almacenara como una fecha en la base
     private Date fechaAlta;
 
     @Override

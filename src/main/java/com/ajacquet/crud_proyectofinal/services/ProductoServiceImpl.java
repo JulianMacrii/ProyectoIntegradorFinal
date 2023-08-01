@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Qualifier("productoService")
-public class ProductoServiceImpl implements ProductoService {
+public class ProductoServiceImpl implements ProductoService { // La clase ProductoServiceImpl implementa la interfaz ProductoService
     @Autowired
     private ProductoRepository productoRepository;
 
@@ -25,4 +27,36 @@ public class ProductoServiceImpl implements ProductoService {
     public Iterable<Producto> listar() {
         return productoRepository.findAll();
     }
+
+    @Override
+    public void eliminarPorById(Integer id) {
+        productoRepository.deleteById(id);
+
+    }
+
+    @Override
+    public Optional<Producto> buscarPorId(Integer id) {
+        return productoRepository.findById(id);
+    }
+
+    @Override
+    public Boolean actualizarProducto(Producto producto) {
+        return null;
+    }
+
+    @Override
+    public Boolean actualizarPrecioProducto(Integer idProducto, Double precioActualizado) {
+        return null;
+    }
+
+
 }
+//El método listar() se encuentra en la clase ProductoServiceImpl,
+// que es una implementación del servicio ProductoService.
+// La clase ProductoServiceImpl está anotada con @Service,
+// lo que indica que es un componente de servicio de Spring que se encarga de la lógica relacionada con los productos.
+
+//En resumen, este código define una implementación del servicio ProductoService llamada ProductoServiceImpl,
+// que utiliza el repositorio ProductoRepository para realizar operaciones de persistencia en la base de datos.
+// El servicio contiene métodos para guardar un producto y obtener una lista de todos los productos almacenados
+// en la base de datos.

@@ -12,8 +12,11 @@ import java.util.Date;
 @Entity
 @Table(name="clientes")
 public class Cliente {
+<<<<<<< HEAD
     @Getter
     @Setter
+=======
+>>>>>>> ecc63ee9b9912c6a5a33175d17b1a459981e01a0
     @Id
     @Column(name="idclientes")
     @GeneratedValue(strategy=GenerationType.AUTO,generator="native"
@@ -22,6 +25,11 @@ public class Cliente {
             name = "native",
             strategy = "native"
     )
+<<<<<<< HEAD
+=======
+    @Getter
+    @Setter
+>>>>>>> ecc63ee9b9912c6a5a33175d17b1a459981e01a0
     private Integer id;
     @Getter
     @Setter
@@ -35,6 +43,7 @@ public class Cliente {
     @Getter
     @Setter
     private String email;
+<<<<<<< HEAD
 
     @Override
     public String toString() {
@@ -46,4 +55,6 @@ public class Cliente {
                 ", email='" + email + '\'' +
                 '}';
     }
+=======
+>>>>>>> ecc63ee9b9912c6a5a33175d17b1a459981e01a0
 }

@@ -29,9 +29,14 @@ public class ProductoServiceImpl implements ProductoService { // La clase Produc
     }
 
     @Override
+<<<<<<< HEAD
     public void eliminarPorById(Integer id) {
         productoRepository.deleteById(id);
 
+=======
+    public void eliminarPorId(Integer id) {
+        productoRepository.deleteById(id);
+>>>>>>> ecc63ee9b9912c6a5a33175d17b1a459981e01a0
     }
 
     @Override
